@@ -34,9 +34,22 @@ def fizzBuzz(n):
     :type n: int
     :rtype: List[str]
     """
-    print n
+    Buzz = []
+    for x in range(1, n+1):
+        # print(x)
+        if x % 3 == 0 and x % 5 != 0:
+            Buzz.append("Fizz")
+        elif x % 3 == 0 and x % 5 == 0:
+            Buzz.append("FizzBuzz")
+        elif x % 3 != 0 and x % 5 == 0:
+            Buzz.append("Buzz")
+        else:
+            Buzz.append(str(x))
+    return Buzz
+
 
 
 if __name__ == "__main__":
-    fizzBuzz(15)
+    Buzz = fizzBuzz(15)
+    print(Buzz)
 
