@@ -40,26 +40,25 @@ class Solution(object):
         """
         list_s = list(s)
         len_s = len(list_s)
-        list1 = ["(", ")"]
-        list2 = ["[", "]"]
-        list3 = ["{", "}"]
+        list1 = ["(", "[", "{"]
+        list2 = [")", "]", "}"]
+        map = {'(': ')', '[': ']', '{': '}'}
         i = 0
-        while i < len_s/2:
-            if list_s[i] == list1[0] and list_s[len_s-1-i] == list1[1]:
-                i += 1
-            elif list_s[i] == list2[0] and list_s[len_s-1-i] == list2[1]:
-                i += 1
-            elif list_s[i] == list3[0] and list_s[len_s-1-i] == list3[1]:
-                i += 1
-            else:
-                print("wrong")
-                return False
-        if i >= len_s/2:
-            print("right")
+        list_new = []
+        while i < len_s:
+            if list_s[i] in list1:
+                list_new.append(list_s[i])
+            elif list_s[i] in list2:
+                if map[list_new[-1]] == list_s[i]:
+                    list_new.pop()
+                else:
+                    return False
+
+            i += 1
+        if i >= len_s-1 and list_new == []:
             return True
 
-
 my1 = Solution()
-my1.isValid("({[}])")
+my1.isValid("()[()]{(})")
 
 
