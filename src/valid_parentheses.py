@@ -59,8 +59,10 @@ class Solution(object):
             i += 1
         if i >= len_s-1 and list_new == []:
             return True
+        else:
+            return False
 
 my1 = Solution()
-print(my1.isValid(")"))
+print(my1.isValid("["))
 
 
