@@ -25,13 +25,14 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        if s.isspace:
-            return False
+        if not s:
+            return True
+        s = s.lower()
         i = 0
         j = -1
         len0 = len(s)
         print(len0)
-        while (i <= len0/2) and (j >= -len0/2 - 1):
+        while (i <= len0 / 2) and (j >= -len0 / 2 - 1):
             if s[i].isalnum() != 1:
                 i += 1
             elif s[j].isalnum() != 1:
@@ -50,9 +51,8 @@ class Solution(object):
             print("s is palindrome")
             return True
 
-
 my1 = Solution()
-my1.isPalindrome('     ')
+print (my1.isPalindrome(""))
 
 
 
