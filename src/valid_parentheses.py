@@ -49,7 +49,9 @@ class Solution(object):
             if list_s[i] in list1:
                 list_new.append(list_s[i])
             elif list_s[i] in list2:
-                if map[list_new[-1]] == list_s[i]:
+                if len(list_new) == 0:
+                    return False
+                elif map[list_new[-1]] == list_s[i]:
                     list_new.pop()
                 else:
                     return False
@@ -59,6 +61,6 @@ class Solution(object):
             return True
 
 my1 = Solution()
-my1.isValid("()[()]{(})")
+print(my1.isValid(")"))
 
 
