@@ -21,3 +21,27 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
+        len0 = len(nums)
+        #len_sum = len0 * (len0 - 1) / 2
+        sum_dic = {}
+        for i in range(0, len0 - 1):
+            for j in range(i+1, len0):
+                tmp = nums[i] + nums[j]
+                sum_dic[tmp] = [i, j]
+        #print(sum_dic)
+        for sum_each in sum_dic.keys():
+            if sum_each == target:
+                print(sum_dic[sum_each])
+                return sum_dic[sum_each]
+            else:
+                continue
+
+
+my1 = Solution()
+my1.twoSum([2, 7, 11, 15], 9)
+
+
+
+
+
+

@@ -63,6 +63,6 @@ class Solution(object):
             return False
 
 my1 = Solution()
-print(my1.isValid("["))
+print(my1.isValid("[[])"))
 
 
