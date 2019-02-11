@@ -16,7 +16,7 @@ Output: [1,2,2,3,5,6]
 """
 
 
-def merge(self, nums1, m, nums2, n):
+def merge(nums1, m, nums2, n):
     """
     :type nums1: List[int]
     :type m: int
@@ -24,8 +24,25 @@ def merge(self, nums1, m, nums2, n):
     :type n: int
     :rtype: void Do not return anything, modify nums1 in-place instead.
     """
+    len_n1 = len(nums1)
+    len_n2 = len(nums2)
+
+    zero_num1 = len_n1 - m
+    zero_num2 = len_n2 - n
+
+    while zero_num1 != 0:
+        nums1.pop()
+        zero_num1 -= 1
+    while zero_num2 != 0:
+        nums2.pop()
+        zero_num2 -= 1
+    for num2 in nums2:
+        nums1.append(num2)
+    nums1.sort()
+    return nums1
+
 
 
 if __name__ == "__main__":
-    output = merge([1,2,3,0,0,0],3, [2,5,6], 3)
-    print output
+    output = merge([1,2,3,0,0,0], 3, [2,5,6], 3)
+    print(output)
